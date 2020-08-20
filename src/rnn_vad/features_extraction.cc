@@ -8,11 +8,11 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "modules/audio_processing/agc2/rnn_vad/features_extraction.h"
+#include "rnn_vad/features_extraction.h"
 
 #include <array>
 
-#include "modules/audio_processing/agc2/rnn_vad/lp_residual.h"
+#include "rnn_vad/lp_residual.h"
 #include "rtc_base/checks.h"
 
 namespace webrtc {

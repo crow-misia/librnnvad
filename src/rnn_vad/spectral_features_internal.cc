@@ -8,7 +8,7 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "modules/audio_processing/agc2/rnn_vad/spectral_features_internal.h"
+#include "rnn_vad/spectral_features_internal.h"
 
 #include <algorithm>
 #include <cmath>
@@ -102,8 +102,8 @@ void SpectralCorrelator::ComputeCrossCorrelation(
     rtc::ArrayView<float, kOpusBands24kHz> cross_corr) const {
   RTC_DCHECK_EQ(x.size(), kFrameSize20ms24kHz);
   RTC_DCHECK_EQ(x.size(), y.size());
-  RTC_DCHECK_EQ(x[1], 0.f) << "The Nyquist coefficient must be zeroed.";
-  RTC_DCHECK_EQ(y[1], 0.f) << "The Nyquist coefficient must be zeroed.";
+  RTC_DCHECK_EQ(x[1], 0.f); // The Nyquist coefficient must be zeroed.
+  RTC_DCHECK_EQ(y[1], 0.f); // The Nyquist coefficient must be zeroed.
   constexpr auto kOpusScaleNumBins24kHz20ms = GetOpusScaleNumBins24kHz20ms();
   size_t k = 0;  // Next Fourier coefficient index.
   cross_corr[0] = 0.f;
@@ -169,7 +169,7 @@ void ComputeDct(rtc::ArrayView<const float> in,
       (kDctScalingFactorError >= 0.f && kDctScalingFactorError < 1e-1f) ||
           (kDctScalingFactorError < 0.f && kDctScalingFactorError > -1e-1f),
       "kNumBands changed and kDctScalingFactor has not been updated.");
-  RTC_DCHECK_NE(in.data(), out.data()) << "In-place DCT is not supported.";
+  RTC_DCHECK_NE(in.data(), out.data()); // In-place DCT is not supported.
   RTC_DCHECK_LE(in.size(), kNumBands);
   RTC_DCHECK_LE(1, out.size());
   RTC_DCHECK_LE(out.size(), in.size());

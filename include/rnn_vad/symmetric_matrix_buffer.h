@@ -68,12 +68,12 @@ class SymmetricMatrixBuffer {
   T GetValue(size_t delay1, size_t delay2) const {
     int row = S - 1 - static_cast<int>(delay1);
     int col = S - 1 - static_cast<int>(delay2);
-    RTC_DCHECK_NE(row, col) << "The diagonal cannot be accessed.";
+    RTC_DCHECK_NE(row, col); // The diagonal cannot be accessed."
     if (row > col)
       std::swap(row, col);  // Swap to access the upper-right triangular part.
     RTC_DCHECK_LE(0, row);
-    RTC_DCHECK_LT(row, S - 1) << "Not enforcing row < col and row != col.";
-    RTC_DCHECK_LE(1, col) << "Not enforcing row < col and row != col.";
+    RTC_DCHECK_LT(row, S - 1); // Not enforcing row < col and row != col.
+    RTC_DCHECK_LE(1, col); // "Not enforcing row < col and row != col.
     RTC_DCHECK_LT(col, S);
     const int index = row * (S - 1) + (col - 1);
     RTC_DCHECK_LE(0, index);

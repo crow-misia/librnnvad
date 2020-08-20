@@ -8,7 +8,7 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "modules/audio_processing/agc2/rnn_vad/rnn.h"
+#include "rnn_vad/rnn.h"
 
 // Defines WEBRTC_ARCH_X86_FAMILY, used below.
 #include "rtc_base/system/arch.h"
@@ -25,9 +25,8 @@
 #include <numeric>
 
 #include "rtc_base/checks.h"
-#include "rtc_base/logging.h"
-#include "third_party/rnnoise/src/rnn_activations.h"
-#include "third_party/rnnoise/src/rnn_vad_weights.h"
+#include "rnnoise/src/rnn_activations.h"
+#include "rnnoise/src/rnn_vad_weights.h"
 
 namespace webrtc {
 namespace rnn_vad {
@@ -278,13 +277,12 @@ FullyConnectedLayer::FullyConnectedLayer(
       weights_(GetPreprocessedFcWeights(weights, output_size)),
       activation_function_(activation_function),
       optimization_(optimization) {
-  RTC_DCHECK_LE(output_size_, kFullyConnectedLayersMaxUnits)
-      << "Static over-allocation of fully-connected layers output vectors is "
-         "not sufficient.";
-  RTC_DCHECK_EQ(output_size_, bias_.size())
-      << "Mismatching output size and bias terms array size.";
-  RTC_DCHECK_EQ(input_size_ * output_size_, weights_.size())
-      << "Mismatching input-output size and weight coefficients array size.";
+  RTC_DCHECK_LE(output_size_, kFullyConnectedLayersMaxUnits);
+      // Static over-allocation of fully-connected layers output vectors is not sufficient.
+  RTC_DCHECK_EQ(output_size_, bias_.size());
+      // Mismatching output size and bias terms array size.
+  RTC_DCHECK_EQ(input_size_ * output_size_, weights_.size());
+      // Mismatching input-output size and weight coefficients array size.
 }
 
 FullyConnectedLayer::~FullyConnectedLayer() = default;
@@ -329,17 +327,15 @@ GatedRecurrentLayer::GatedRecurrentLayer(
       recurrent_weights_(
           GetPreprocessedGruTensor(recurrent_weights, output_size)),
       optimization_(optimization) {
-  RTC_DCHECK_LE(output_size_, kRecurrentLayersMaxUnits)
-      << "Static over-allocation of recurrent layers state vectors is not "
-         "sufficient.";
-  RTC_DCHECK_EQ(kNumGruGates * output_size_, bias_.size())
-      << "Mismatching output size and bias terms array size.";
-  RTC_DCHECK_EQ(kNumGruGates * input_size_ * output_size_, weights_.size())
-      << "Mismatching input-output size and weight coefficients array size.";
+  RTC_DCHECK_LE(output_size_, kRecurrentLayersMaxUnits);
+      // Static over-allocation of recurrent layers state vectors is not sufficient.
+  RTC_DCHECK_EQ(kNumGruGates * output_size_, bias_.size());
+      // Mismatching output size and bias terms array size.
+  RTC_DCHECK_EQ(kNumGruGates * input_size_ * output_size_, weights_.size());
+      // Mismatching input-output size and weight coefficients array size.
   RTC_DCHECK_EQ(kNumGruGates * output_size_ * output_size_,
-                recurrent_weights_.size())
-      << "Mismatching input-output size and recurrent weight coefficients array"
-         " size.";
+                recurrent_weights_.size());
+      // Mismatching input-output size and recurrent weight coefficients array size.
   Reset();
 }
 
@@ -395,10 +391,10 @@ RnnBasedVad::RnnBasedVad()
                     SigmoidApproximated,
                     DetectOptimization()) {
   // Input-output chaining size checks.
-  RTC_DCHECK_EQ(input_layer_.output_size(), hidden_layer_.input_size())
-      << "The input and the hidden layers sizes do not match.";
-  RTC_DCHECK_EQ(hidden_layer_.output_size(), output_layer_.input_size())
-      << "The hidden and the output layers sizes do not match.";
+  RTC_DCHECK_EQ(input_layer_.output_size(), hidden_layer_.input_size());
+      // The input and the hidden layers sizes do not match.
+  RTC_DCHECK_EQ(hidden_layer_.output_size(), output_layer_.input_size());
+      // The hidden and the output layers sizes do not match.
 }
 
 RnnBasedVad::~RnnBasedVad() = default;

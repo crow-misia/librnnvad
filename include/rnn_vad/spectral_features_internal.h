@@ -17,7 +17,7 @@
 #include <vector>
 
 #include "api/array_view.h"
-#include "modules/audio_processing/agc2/rnn_vad/common.h"
+#include "rnn_vad/common.h"
 
 namespace webrtc {
 namespace rnn_vad {

@@ -8,7 +8,7 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "common_audio/include/audio_util.h"
+#include "utility/audio_util.h"
 
 namespace webrtc {
 

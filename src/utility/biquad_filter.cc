@@ -8,7 +8,7 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "modules/audio_processing/agc2/biquad_filter.h"
+#include "utility/biquad_filter.h"
 
 #include <stddef.h>
 

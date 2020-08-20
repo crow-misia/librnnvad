@@ -85,7 +85,7 @@
 // MSVC++ requires this to be set before any other includes to get M_PI.
 #define _USE_MATH_DEFINES
 
-#include "common_audio/resampler/sinc_resampler.h"
+#include "resampler/sinc_resampler.h"
 
 #include <math.h>
 #include <stdint.h>
@@ -95,7 +95,6 @@
 
 #include "rtc_base/checks.h"
 #include "rtc_base/system/arch.h"
-#include "system_wrappers/include/cpu_features_wrapper.h"  // kSSE2, WebRtc_G...
 
 namespace webrtc {
 

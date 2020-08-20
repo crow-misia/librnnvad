@@ -16,8 +16,8 @@
 #include <array>
 
 #include "api/array_view.h"
-#include "modules/audio_processing/agc2/rnn_vad/common.h"
-#include "modules/audio_processing/agc2/rnn_vad/pitch_info.h"
+#include "rnn_vad/common.h"
+#include "rnn_vad/pitch_info.h"
 
 namespace webrtc {
 namespace rnn_vad {

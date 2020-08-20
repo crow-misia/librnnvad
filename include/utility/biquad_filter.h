@@ -13,9 +13,9 @@
 
 #include <algorithm>
 
-#include "api/array_view.h"
-#include "rtc_base/arraysize.h"
-#include "rtc_base/constructor_magic.h"
+#include "../api/array_view.h"
+#include "../rtc_base/arraysize.h"
+#include "../rtc_base/constructor_magic.h"
 
 namespace webrtc {
 

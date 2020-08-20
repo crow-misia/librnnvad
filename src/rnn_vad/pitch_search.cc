@@ -8,7 +8,7 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "modules/audio_processing/agc2/rnn_vad/pitch_search.h"
+#include "rnn_vad/pitch_search.h"
 
 #include <array>
 #include <cstddef>

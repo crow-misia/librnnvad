@@ -15,10 +15,10 @@
 #include <vector>
 
 #include "api/array_view.h"
-#include "modules/audio_processing/agc2/rnn_vad/auto_correlation.h"
-#include "modules/audio_processing/agc2/rnn_vad/common.h"
-#include "modules/audio_processing/agc2/rnn_vad/pitch_info.h"
-#include "modules/audio_processing/agc2/rnn_vad/pitch_search_internal.h"
+#include "rnn_vad/auto_correlation.h"
+#include "rnn_vad/common.h"
+#include "rnn_vad/pitch_info.h"
+#include "rnn_vad/pitch_search_internal.h"
 
 namespace webrtc {
 namespace rnn_vad {

@@ -13,7 +13,7 @@
 
 #include <arm_neon.h>
 
-#include "common_audio/resampler/sinc_resampler.h"
+#include "resampler/sinc_resampler.h"
 
 namespace webrtc {
 

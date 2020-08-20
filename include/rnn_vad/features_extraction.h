@@ -14,12 +14,12 @@
 #include <vector>
 
 #include "api/array_view.h"
-#include "modules/audio_processing/agc2/biquad_filter.h"
-#include "modules/audio_processing/agc2/rnn_vad/common.h"
-#include "modules/audio_processing/agc2/rnn_vad/pitch_info.h"
-#include "modules/audio_processing/agc2/rnn_vad/pitch_search.h"
-#include "modules/audio_processing/agc2/rnn_vad/sequence_buffer.h"
-#include "modules/audio_processing/agc2/rnn_vad/spectral_features.h"
+#include "utility/biquad_filter.h"
+#include "rnn_vad/common.h"
+#include "rnn_vad/pitch_info.h"
+#include "rnn_vad/pitch_search.h"
+#include "rnn_vad/sequence_buffer.h"
+#include "rnn_vad/spectral_features.h"
 
 namespace webrtc {
 namespace rnn_vad {

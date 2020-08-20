@@ -8,19 +8,16 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "modules/audio_processing/agc2/rnn_vad/common.h"
+#include "rnn_vad/common.h"
 
 #include "rtc_base/system/arch.h"
-#include "system_wrappers/include/cpu_features_wrapper.h"
 
 namespace webrtc {
 namespace rnn_vad {
 
 Optimization DetectOptimization() {
 #if defined(WEBRTC_ARCH_X86_FAMILY)
-  if (WebRtc_GetCPUInfo(kSSE2) != 0) {
-    return Optimization::kSse2;
-  }
+  return Optimization::kSse2;
 #endif
 
 #if defined(WEBRTC_HAS_NEON)

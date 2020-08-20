@@ -8,10 +8,10 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "modules/audio_processing/utility/pffft_wrapper.h"
+#include "utility/pffft_wrapper.h"
 
 #include "rtc_base/checks.h"
-#include "third_party/pffft/src/pffft.h"
+#include "pffft/src/pffft.h"
 
 namespace webrtc {
 namespace {

@@ -8,7 +8,7 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "modules/audio_processing/agc2/rnn_vad/pitch_search_internal.h"
+#include "rnn_vad/pitch_search_internal.h"
 
 #include <stdlib.h>
 
@@ -17,7 +17,7 @@
 #include <cstddef>
 #include <numeric>
 
-#include "modules/audio_processing/agc2/rnn_vad/common.h"
+#include "rnn_vad/common.h"
 #include "rtc_base/checks.h"
 
 namespace webrtc {
@@ -360,9 +360,9 @@ PitchInfo CheckLowerPitchPeriodsAndComputePitchGain(
         candidate_pitch_secondary_period > static_cast<int>(kMaxPitch24kHz)) {
       candidate_pitch_secondary_period = initial_pitch_period;
     }
-    RTC_DCHECK_NE(candidate_pitch_period, candidate_pitch_secondary_period)
-        << "The lower pitch period and the additional sub-harmonic must not "
-           "coincide.";
+    RTC_DCHECK_NE(candidate_pitch_period, candidate_pitch_secondary_period);
+        // The lower pitch period and the additional sub-harmonic must not coincide.
+
     // Compute an auto-correlation score for the primary pitch candidate
     // |candidate_pitch_period| by also looking at its possible sub-harmonic
     // |candidate_pitch_secondary_period|.

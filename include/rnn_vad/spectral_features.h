@@ -17,11 +17,11 @@
 #include <vector>
 
 #include "api/array_view.h"
-#include "modules/audio_processing/agc2/rnn_vad/common.h"
-#include "modules/audio_processing/agc2/rnn_vad/ring_buffer.h"
-#include "modules/audio_processing/agc2/rnn_vad/spectral_features_internal.h"
-#include "modules/audio_processing/agc2/rnn_vad/symmetric_matrix_buffer.h"
-#include "modules/audio_processing/utility/pffft_wrapper.h"
+#include "rnn_vad/common.h"
+#include "rnn_vad/ring_buffer.h"
+#include "rnn_vad/spectral_features_internal.h"
+#include "rnn_vad/symmetric_matrix_buffer.h"
+#include "utility/pffft_wrapper.h"
 
 namespace webrtc {
 namespace rnn_vad {

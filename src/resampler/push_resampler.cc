@@ -8,15 +8,15 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "common_audio/resampler/include/push_resampler.h"
+#include "resampler/push_resampler.h"
 
 #include <stdint.h>
 #include <string.h>
 
 #include <memory>
 
-#include "common_audio/include/audio_util.h"
-#include "common_audio/resampler/push_sinc_resampler.h"
+#include "utility/audio_util.h"
+#include "resampler/push_sinc_resampler.h"
 #include "rtc_base/checks.h"
 
 namespace webrtc {
